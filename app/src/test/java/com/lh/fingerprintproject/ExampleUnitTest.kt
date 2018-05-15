@@ -1,4 +1,4 @@
-package finger.lh.com.fingerprintproject
+package com.lh.fingerprintproject
 
 import org.junit.Test
 

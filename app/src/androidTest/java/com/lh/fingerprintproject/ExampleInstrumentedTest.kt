@@ -1,4 +1,4 @@
-package finger.lh.com.fingerprintproject
+package com.lh.fingerprintproject
 
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4
