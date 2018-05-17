@@ -16,6 +16,7 @@ object FingerprintUtils {
     private lateinit var fingerprintManager: FingerprintManagerCompat
     private var mCancellationSignal: CancellationSignal? = null
 
+
     fun init(ctx: Context) {
         fingerprintManager = FingerprintManagerCompat.from(ctx)
     }

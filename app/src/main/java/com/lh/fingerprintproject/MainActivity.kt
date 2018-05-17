@@ -62,17 +62,25 @@ class MainActivity : AppCompatActivity() {
                 toast("识别成功")
             }
 
-            //当指纹有效但未被识别时调用。
+            //当指纹有效但未被识别时调用，系统给我们提供了5次重试机会
             override fun onAuthenticationFailed() {
                 toast("识别失败，请重试\n 重试次数")
             }
 
-            //当遇到不可恢复的错误并且操作完成时调用。
+            /**
+             *  当5次重试机会用完后，会调用此方法。
+             * 具体的禁用时间由手机厂商的系统不同而有略微差别，有的是1分钟，有的是30秒等等。
+             * 而且，由于手机厂商的系统区别，有些系统上调用了onAuthenticationError()后，
+             * 在禁用时间内，其他APP里面的指纹识别功能也无法使用，甚至系统的指纹解锁功能也无法使用。
+             * 而有的系统上，在禁用时间内调用其他APP的指纹解锁功能，或者系统的指纹解锁功能，就能立即重置指纹识别功能。
+             */
             override fun onAuthenticationError(errMsgId: Int, errString: CharSequence?) {
+                toast(errString as String)
             }
 
-            //在认证期间遇到可恢复的错误时调用。
+            // Called when a recoverable error has been encountered during authentication. The help string is provided to give the user guidance for what went wrong, such as "Sensor dirty, please clean it."
             override fun onAuthenticationHelp(helpMsgId: Int, helpString: CharSequence?) {
+                toast(helpString as String)
             }
         })
     }
