@@ -62,6 +62,10 @@ class MainActivity : AppCompatActivity() {
             //在识别指纹成功时调用。
             override fun onAuthenticationSucceeded(result: FingerprintManagerCompat.AuthenticationResult?) {
                 toast("识别成功")
+/*如果我们上面在调用authenticate的时候，我们的CryptoObject不是null的话，
+ 那么我们在这个方法中可以通过AuthenticationResult来获得Cypher对象然后调用它的doFinal方法。
+docRootFinal方法会检查结果是不是会拦截或者篡改过，如果是的话会抛出一个异常。当我们发现这些异常的时候都应该将认证当做是失败来来处理，为了安全建议大家都这么做。
+*/
             }
 
             //当指纹有效但未被识别时调用，系统给我们提供了5次重试机会

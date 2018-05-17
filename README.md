@@ -22,10 +22,20 @@ Google支持的设备条件：
    1. 当前设备是否支持指纹识别
    2. 是否设置了锁屏密码，开启了指纹识别（应用配置指纹识别权限）
  
- ## 说明
- 参考[官方Demo](https://github.com/googlesamples/android-FingerprintDialog)
+ ## 主要API
+ 
+ [官方Demo地址](https://github.com/googlesamples/android-FingerprintDialog)
+ 
+ ```
+    public void authenticate(CryptoObject, CancellationSignal, flags, AuthenticationCallback,Handler)
+ ``` 
+ * 第一个参数是一个加密对象，防止第三方恶意攻击的包装类：new FingerprintManager.CryptoObject(cipher)。
+ * 第二个参数是提供了取消操作的能力：new CancellationSignal() 
+ * 第三个参数是一个标志，默认为0。
+ * 第四个参数是提供了指纹识别的几个回调方法，包括指纹识别成功、失败等。需要我们重写。
+ * 第五个参数用于处理回调事件，可以传null。
+ 
 
 # 参考
 * [Android开发学习—指纹识别系统的原理与使用](https://blog.csdn.net/qq_37293612/article/details/54598302)
-* [Android指纹识别深入浅出分析到实战（6.0以下系统适配方案）](https://www.cnblogs.com/popfisher/p/6063835.html)
 * [Android 6.0指纹识别App开发demo](https://blog.csdn.net/createchance/article/details/51991764)
