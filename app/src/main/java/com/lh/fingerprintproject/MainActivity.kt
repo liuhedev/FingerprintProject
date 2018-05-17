@@ -12,11 +12,13 @@ import android.support.v7.app.AppCompatActivity
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
-import android.content.Intent
-import android.content.ComponentName
 import com.lh.fingerprintproject.FingerprintUtils.startToSetFingerprint
 
-
+/**
+ * 开启指纹识别的判断逻辑：
+ * [1]是否支持指纹识别
+ * [2]是否设置了锁屏密码，开启了指纹识别（应用配置指纹识别权限）
+ */
 class MainActivity : AppCompatActivity() {
     private lateinit var mSDKVersionTv: TextView
     private lateinit var mHasPermissionTv: TextView

@@ -15,9 +15,17 @@ Google支持的设备条件：
     Android Support Repository
 ```
 
-# 集成流程
-参考[官方Demo](https://github.com/googlesamples/android-FingerprintDialog)
+# 集成指纹识别
+
+ ## 判断逻辑
+   
+   1. 当前设备是否支持指纹识别
+   2. 是否设置了锁屏密码，开启了指纹识别（应用配置指纹识别权限）
+ 
+ ## 说明
+ 参考[官方Demo](https://github.com/googlesamples/android-FingerprintDialog)
 
 # 参考
 * [Android开发学习—指纹识别系统的原理与使用](https://blog.csdn.net/qq_37293612/article/details/54598302)
-* [android指纹识别开发](https://blog.csdn.net/qqoopp332211/article/details/53364863)
+* [Android指纹识别深入浅出分析到实战（6.0以下系统适配方案）](https://www.cnblogs.com/popfisher/p/6063835.html)
+* [Android 6.0指纹识别App开发demo](https://blog.csdn.net/createchance/article/details/51991764)

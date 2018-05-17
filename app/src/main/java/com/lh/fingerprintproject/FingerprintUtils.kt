@@ -36,7 +36,13 @@ object FingerprintUtils {
      * @return 如果至少有一个指纹登记，则为true，否则为false
      */
     fun hasEnrolledFingerprints(): Boolean {
-        return fingerprintManager.hasEnrolledFingerprints()
+        try {
+            // 有些厂商api23之前的版本可能没有做好兼容，这个方法内部会崩溃（redmi note2, redmi note3等）
+            return fingerprintManager.hasEnrolledFingerprints()
+        } catch (e: Throwable) {
+            Log.e("lh", "system error")
+        }
+        return false
     }
 
     /**
